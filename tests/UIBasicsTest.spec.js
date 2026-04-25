@@ -13,7 +13,7 @@ test('Browser Playwright Case', async ({browser}) => {
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/")
 })
 
-test('Page Playwright Case', async ({page}) => {
+test.only('Page Playwright Case', async ({page}) => {
     
     // Opening browser as new context - where none of the plugins and cookies are available
     // const context = await browser.newContext()
