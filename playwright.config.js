@@ -20,7 +20,8 @@ export default defineConfig({
 
   use: {
     // browserName: 'chromium'
-    browserName: 'firefox'
+    browserName: 'firefox',
+    headless: false
   }
 });
 
