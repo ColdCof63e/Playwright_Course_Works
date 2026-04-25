@@ -1,4 +1,5 @@
 const {test} = require('@playwright/test')
+const {expect} = require('@playwright/test')
 
 
 test('Browser Playwright Case', async ({browser}) => {
@@ -23,4 +24,10 @@ test.only('Page Playwright Case', async ({page}) => {
 
     // assigning URL
     await page.goto("https://google.com/")
+
+    // Method 1 of assertion or expect output
+    const title = await page.title()
+    console.log(title)
+
+    await expect(page).toHaveTitle("Google")
 })
