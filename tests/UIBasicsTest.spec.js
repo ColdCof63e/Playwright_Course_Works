@@ -22,5 +22,5 @@ test('Page Playwright Case', async ({page}) => {
     // const page = await context.newPage()
 
     // assigning URL
-    await page.goto("https://rahulshettyacademy.com/loginpagePractise/")
+    await page.goto("https://google.com/")
 })
