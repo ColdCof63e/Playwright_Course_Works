@@ -1,5 +1,6 @@
 const {test} = require('@playwright/test')
 const {expect} = require('@playwright/test')
+require('dotenv').config()
 
 
 test.only('Browser Playwright Case', async ({browser}) => {
@@ -27,9 +28,13 @@ test.only('Browser Playwright Case', async ({browser}) => {
 
     // To clear the text field(s) and type again
     await userName.fill("")
-    await userName.type("rahulshettyacademy")
+    
+    console.log("Username is:",process.env.TEST_USERNAME)
+    await userName.fill(process.env.TEST_USERNAME)
     await password.fill("")
-    await password.type("Learning@830$3mK2")
+
+    console.log("Password is:",process.env.TEST_PASSWORD)
+    await password.fill(process.env.TEST_PASSWORD)
     await signInBtn.click()
 
     await expect(page).toHaveTitle("ProtoCommerce")
