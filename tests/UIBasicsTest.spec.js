@@ -13,6 +13,7 @@ test.only('Browser Playwright Case', async ({browser}) => {
     const userName = page.locator("#username")
     const password = page.locator("[type='password']")
     const signInBtn = page.locator("#signInBtn")
+    const cardTitles = page.locator(".card-body a")
 
     // assigning URL - https://rahulshettyacademy.com/
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/")
@@ -40,14 +41,17 @@ test.only('Browser Playwright Case', async ({browser}) => {
     console.log(await page.locator(".card-body a").first().textContent())
 
     // Using for loop to get all the product titles
-    const allLinks = await page.locator('.card-body a')
+    // const allLinks = await page.locator('.card-body a')
 
-    const count = await allLinks.count()
+    // const count = await allLinks.count()
 
-    for(const link of await allLinks.all()) {
-        const text = await link.textContent()
-        console.log(text)
-    }
+    // for(const link of await allLinks.all()) {
+    //     const text = await link.textContent()
+    //     console.log(text)
+    // }
+
+    // Alternate way to get all the product titles
+    console.log(await cardTitles.allTextContents())
 })
 
 test('Page Playwright Case', async ({page}) => {
