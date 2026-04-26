@@ -21,6 +21,6 @@ export default defineConfig({
   use: {
     // browserName: 'chromium'
     browserName: 'firefox',
-    headless: false
+    headless: process.env.CI ? true : false
   }
 });
