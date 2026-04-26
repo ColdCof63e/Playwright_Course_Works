@@ -11,14 +11,17 @@ test('Assignment 1 - Login and fetch 1st product title', async ({page}) => {
     await password.fill(process.env.ASSIGNMENT1_PASSWORD)
     await page.locator("#login").click()
 
-    // Loading time for the page to load after login
-    await page.waitForLoadState('networkidle')
+    // Synchronization steps - Explcit wait for the page to load after login
+    //Method 1 of explicit wait in Playwright: Loading time for the page to load after login
+    // await page.waitForLoadState('networkidle')
+
+    // Method 2 of explicit wait in Playwright: Waiting for the element to be visible after login
+    await page.locator(".card-body b").first().waitFor()
 
     await expect(page).toHaveTitle("Let's Shop")
 
+    console.log(await page.locator(".card-body b").allTextContents())
+
     // console.log(await page.locator(".card-body b").first().textContent())
     // expect(await page.locator(".card-body b").first().textContent()).toBe("ADIDAS ORIGINAL")
-
-    // To fetch all the product titles and print them in the console
-    console.log(await page.locator(".card-body b").allTextContents())
 })
